@@ -5,12 +5,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="/dist/output.css" rel="stylesheet" />
+  <!-- Alpine Plugins -->
+  <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="app.js"></script>
   <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
-  <script src="app.js"></script>
   <style>[x-cloak] { display: none !important; }</style>
+  <title>asd</title>
 </head>
 
-<body x-data="productItem">
+<body>
   <header x-data="{
         mobileMenuOpen: false
       }" class="flex justify-between bg-slate-800 shadow-md text-white">
@@ -254,14 +257,19 @@
     <!-- Product List -->
     <div class="grid gap-8 grig-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-5">
       <!-- Product Item -->
-      <div class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white">
+      <div x-data="productItem({
+        id: 1, 
+        img: 'img/1_1.jpg', 
+        title: 'Logitech1 G502 HERO High Performance Wired Gaming Mouse, HERO 25K Sensor, 25,600 DPI, RGB, Adjustable Weights, 11', 
+        price: '17.99', 
+      })" class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white">
         <a href="/src/product.html" class="block overflow-hidden">
           <img src="/src/img/1_1.jpg" alt="" class="rounded-lg hover:scale-105 hover:rotate-1 transition-transform" />
         </a>
         <div class="p-4">
           <h3 class="text-lg">
             <a href="/src/product.html">
-              Logitech G502 HERO High Performance Wired Gaming Mouse, HERO 25K
+              Logitech1 G502 HERO High Performance Wired Gaming Mouse, HERO 25K
               Sensor, 25,600 DPI, RGB, Adjustable Weights, 11
             </a>
           </h3>
@@ -269,7 +277,7 @@
         </div>
         <div class="flex justify-between py-3 px-4">
           <button
-            @click="addToWatchlist(1)"
+            @click="addToWatchlist(id)"
             class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center
              hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
               x-bind:class="isInWatchlist(1) ? 'text-white bg-purple-800' : 'text-purple-600'" 
@@ -280,12 +288,18 @@
                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
           </button>
-          <button class="btn-primary" @click="addToCart()">Add to Cart</button>
+          <button class="btn-primary" @click="addToCart(id)">Add to Cart</button>
         </div>
       </div>
       <!--/ Product Item -->
       <!-- Product Item -->
-      <div class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white">
+      <div x-data="productItem({
+        id: 2, 
+        img: 'img/1_1.jpg', 
+        title: 'Logitech G502 HERO High Performance Wired Gaming Mouse, HERO 25K Sensor, 25,600 DPI, RGB, Adjustable Weights, 11', 
+        price: '17.99', 
+        quantity: 3
+      })" class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white">
         <a href="/src/product.html" class="block overflow-hidden">
           <img src="/src/img/1_1.jpg" alt="" class="rounded-lg hover:scale-105 hover:rotate-1 transition-transform" />
         </a>
@@ -300,7 +314,7 @@
         </div>
         <div class="flex justify-between py-3 px-4">
           <button
-            @click="addToWatchlist(2)"
+            @click="addToWatchlist(id)"
             class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center
              text-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
              x-bind:class="isInWatchlist(2) ? 'text-white bg-purple-800' : ''">
@@ -310,12 +324,17 @@
                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
           </button>
-          <button class="btn-primary" @click="addToCart()">Add to Cart</button>
+          <button class="btn-primary" @click="addToCart(id)">Add to Cart</button>
         </div>
       </div>
       <!--/ Product Item -->
       <!-- Product Item -->
-      <div class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white">
+      <div x-data="productItem({
+        id: 3, 
+        img: 'img/1_1.jpg', 
+        title: 'Logitech G502 HERO High Performance Wired Gaming Mouse, HERO 25K Sensor, 25,600 DPI, RGB, Adjustable Weights, 11', 
+        price: '17.99', 
+      })" class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white">
         <a href="/src/product.html" class="block overflow-hidden">
           <img src="/src/img/1_1.jpg" alt="" class="rounded-lg hover:scale-105 hover:rotate-1 transition-transform" />
         </a>
@@ -340,12 +359,17 @@
                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
           </button>
-          <button class="btn-primary" @click="addToCart()">Add to Cart</button>
+          <button class="btn-primary" @click="addToCart(id)">Add to Cart</button>
         </div>
       </div>
       <!--/ Product Item -->
       <!-- Product Item -->
-      <div class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white">
+      <div x-data="productItem({
+        id: 4, 
+        img: 'img/1_1.jpg', 
+        title: 'Logitech G502 HERO High Performance Wired Gaming Mouse, HERO 25K Sensor, 25,600 DPI, RGB, Adjustable Weights, 11', 
+        price: '17.99', 
+      })" class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white">
         <a href="/src/product.html" class="block overflow-hidden">
           <img src="/src/img/1_1.jpg" alt="" class="rounded-lg hover:scale-105 hover:rotate-1 transition-transform" />
         </a>
@@ -356,7 +380,7 @@
               Sensor, 25,600 DPI, RGB, Adjustable Weights, 11
             </a>
           </h3>
-          <h5 class="font-bold">$17.99</h5>
+          <h5 class="font-bold">$17.98</h5>
         </div>
         <div class="flex justify-between py-3 px-4">
           <button
@@ -367,7 +391,7 @@
                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
           </button>
-          <button class="btn-primary">Add to Cart</button>
+          <button class="btn-primary" @click="addToCart(id)">Add to Cart</button>
         </div>
       </div>
       <!--/ Product Item -->
